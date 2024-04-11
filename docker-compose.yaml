@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+#  web:
+#    build:
+#      context: .
+#      dockerfile: web_Dockerfile
+#    ports:
+#      - "8000:8000"
+#    networks:
+#      - icarus-pa
+
+  test-postgres:
+    build:
+      context: .
+      dockerfile: db_Dockerfile
+    environment:
+      POSTGRES_USER: hqvdqqhguy
+      POSTGRES_PASSWORD: PYZLO1052XB6ZVPQ$
+      POSTGRES_DB: icarus-pa-database
+    ports:
+      - "5432:5432"
+    networks:
+      - icarus-pa
+    volumes:
+      - ./sql:/sql
+
+networks:
+  icarus-pa:
+
+volumes:
+  icarus-volume:
